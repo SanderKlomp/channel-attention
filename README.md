@@ -1,5 +1,17 @@
 # Channel attention modules
-This repository contains the official implementation of "Performance-Efficiency Comparisons of Channel Attention Modules for ResNets" for the ImageNet dataset.
+This repository contains the official implementation of "Performance-Efficiency Comparisons of Channel Attention Modules for ResNets" for the ImageNet dataset. It includes optimized PyTorch implementations of several attention modules shown below.
+
+![](figures/AttentionModules.png)
+
+The performance of attention modules compared to their computational cost varies strongly with several parameters. For example, even though the number of flops of all attention modules is negligble compared to the rest of the network, the time overhead when measured on a GPU varies strongly. 
+For ImageNet size images (224x224), the tradeoff in computation time on an RTX2080 Ti favors simple modules such as AB and ECA.
+<img src="figures/pytorch_performance_tradeoff.png" width="50%" height="50%">
+
+However, module overhead scales very strongly with resolution.
+
+<img src="figures/reltime_pytorch_resolution_50.png" width="50%" height="50%">
+
+For a more in-depth comparison of the modules, feel free to read our paper.
 
 ## Requirements
 Training requires the following packages:
